@@ -1,6 +1,6 @@
 ﻿using ShopBridge.Entity;
 using ShopBridge.Model;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ShopBridge.RepositoryChannel
 {
@@ -13,7 +13,6 @@ namespace ShopBridge.RepositoryChannel
                 return await dataContext.Items.ToListAsync();
             }
         }
-
         public async Task<Item> GetItemById(string itemId)
         {
             using (var inventoryDataContext = new ShopBridgeContext())
@@ -21,7 +20,6 @@ namespace ShopBridge.RepositoryChannel
                 return await inventoryDataContext.Items.FirstOrDefaultAsync(x => x.Id == Convert.ToInt32(itemId));
             }
         }
-
         public async Task<int> AddItem(Item item)
         {
             using (var inventoryDataContext = new ShopBridgeContext())
@@ -31,7 +29,6 @@ namespace ShopBridge.RepositoryChannel
                 return item.Id;
             }
         }
-
         public async Task<bool> UpdateItem(Item item)
         {
             using (var inventoryDataContext = new ShopBridgeContext())
@@ -49,7 +46,6 @@ namespace ShopBridge.RepositoryChannel
                 return false;
             }
         }
-
         public async Task<bool> RemoveItem(string itemId)
         {
             using (var inventoryDataContext = new ShopBridgeContext())

@@ -1,9 +1,6 @@
-﻿
-
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using ShopBridge.Core;
 using ShopBridge.RepositoryChannel;
-using System.Reflection;
 namespace ShopBridge
 {
     public class Startup
